@@ -6,7 +6,7 @@ int main(){
     printf("--> symmetric key means , same key is used for both encryption and decryption\n");
 /*------VARIABLES USED IN THE CODE-------*/    
     int key;                /*-used to get key from user-*/
-	int i;                  /*-used in functioning of loops-*/
+    int i;                  /*-used in functioning of loops-*/
     int usedkey;            /*-key used for alphabets-*/
     int usednumkey;         /*-key used for integers-*/
     int unlock;             /*-used to chceck the value of key at decryption-*/
@@ -82,7 +82,7 @@ int main(){
       	 if(str[i]==' '){continue;}/*--FOR SPACES--*/
          else if(str[i]>='a' && str[i]<='z'){/*--FOR SMALL LETTERS--*/
     	 	  if(str[i]-usedkey<'a'){str[i]=str[i]-usedkey+26;}
-    	      else{str[i]=str[i]-usedkey;}
+    	          else{str[i]=str[i]-usedkey;}
 	       }
 	     else if(str[i]>='A' && str[i]<='Z'){/*--FOR CAPITAL LETTERS--*/
     	      if(str[i]-usedkey<'A'){str[i]=str[i]-usedkey+26;}
