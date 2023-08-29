@@ -32,7 +32,7 @@ your suggestions are welcome! Feel free to enhance the project by adding more en
 improving code readability, or fixing bugs. Submit your contributions via pull requests.
 
 ## License
-i dont know much about license as this is my firt project, but i have made it on my own, not copied from someone , the encryption and decryption algorithm i have used , 
+i dont know much about license as this is my first project, but i have made it on my own, not copied from someone , the encryption and decryption algorithm i have used , 
 was a idea taken from a youtube channel(cecyours). if you like this code then you can use it , my only advice would be , instead of copy pasting , try to understand it 
 and then impliment this your code self. comments in the code will help you a lot to understand.
 
