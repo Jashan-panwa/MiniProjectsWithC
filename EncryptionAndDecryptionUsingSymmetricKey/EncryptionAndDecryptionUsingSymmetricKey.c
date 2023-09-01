@@ -50,14 +50,14 @@ int main(){
 /*------CODE TO ASK , WHETER YOU WANT TO DO DECRYPTION OR NOT-------*/
     printf("\nWould you like to proceed to the Decryption phase? Y/N\n-->");
     fflush(stdin);scanf("%c",&sample);
-    if(sample=='y'||sample=='Y' ||sample=='yes'|| sample=='YES'|| sample=='Yes'|| sample=='yEs' || sample=='yeS' || sample=='yES' || sample=='yeS'|| sample=='YEs' || sample=='YeS'){stepup++;}
+    if(sample=='y'||sample=='Y' ||sample=='yes'|| sample=='YES'|| sample=='Yes'|| sample=='yEs' || sample=='yeS' || sample=='yES' || sample=='yeS'|| sample=='YEs' || sample=='YeS'){stepup++;printf("Please wait, Loading ....");}
     else if(sample=='n'||sample=='N' ||sample=='no'|| sample=='NO'|| sample=='No' || sample=='nO'){printf("ok , as you wish, we will stop the code here. (press any key to quit)");getch();}
     else{printf("invalid respond , we will consider this as NO. (press any key to quit)",sample);getch();}
        
     
 /*------CODE WHICH ASKING FOR CORRECT KEY-------*/    
     if(stepup>0){
-    	printf("\e[1;1H\e[2J");
+    	system("cls");
     	printf("The Encrypted Text is , LET's see you can decrypt it!!!\n-->");
     	puts(str);
     	
