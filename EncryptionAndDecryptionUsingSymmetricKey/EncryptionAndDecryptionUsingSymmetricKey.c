@@ -16,10 +16,20 @@ int main(){
 /*------CODE TO GET THE DATA-------*/    
     printf("\nKindly provide the data for encryption:\n--> ");
     gets(str);
+    if (strlen(str) == 0) {
+        printf("\nNo data entered. Exiting the program.\n");
+		return -1;
+    }
 /*------CODE TO GET THE KEY-------*/    
-    printf("\nPlease input the key for encryption and decryption (must be an integer): ");
-    fflush(stdin);
-    scanf("%d",&key);
+    for (;;) {
+        printf("\nPlease input the key for encryption and decryption (must be an integer): ");
+        fflush(stdin);
+        if (scanf("%d", &key) == 1){break;}/*-- Exit the loop if a valid integer is entered---*/ 
+		else {
+			printf("Invalid input. Please enter a numeric key.\n");
+            fflush(stdin);
+        }
+    }
  /*------ADJUSTING KEY SIZE FOR ALPHABETS-------*/   
     if(key>26 && key%26!=0){usedkey=key%26;}
     else if(key%26==0){usedkey=key/26;}
@@ -31,18 +41,21 @@ int main(){
 /*------CODE WHICH IS DOING ENCRYPTION-------*/  
     for( i=0;str[i];i++){
       if(str[i]==' '){continue;}/*--FOR SPACES--*/
-      else if(str[i]>='a' && str[i]<='z'){/*--FOR SMALL LETTERS--*/
+      else if(str[i]>='a' && str[i]<='z'){                                 /*--FOR SMALL LETTERS--*/
     		if(str[i]+usedkey>'z'){str[i]=str[i]+usedkey-26;}
     		else{str[i]=str[i]+usedkey;}
 	   }
-      else if(str[i]>='A' && str[i]<='Z'){/*--FOR CAPITAL LETTERS--*/
+      else if(str[i]>='A' && str[i]<='Z'){                                 /*--FOR CAPITAL LETTERS--*/
     		if(str[i]+usedkey>'Z'){str[i]=str[i]+usedkey-26;}
     		else{str[i]=str[i]+usedkey;}
 	   } 
-      else if(str[i]>='0' && str[i]<='9'){/*--FOR SNUMERIC VALUES--*/
+      else if(str[i]>='0' && str[i]<='9'){                                 /*--FOR SNUMERIC VALUES--*/
     		if(str[i]+usednumkey>'9'){str[i]=str[i]+usednumkey-10;}
     		else{str[i]=str[i]+usednumkey;}
 	   } 
+	   else{                                                           /*--FOR SYMBOLS--*/
+	        str[i]=str[i]+122;
+	   }
 	} 
 /*------CODE TO DISPLAY ENCRYPPTED TEXT-------*/      
     printf("\nHere is your encrypted text, also referred to as cipher text:\n--> ");
@@ -50,7 +63,7 @@ int main(){
 /*------CODE TO ASK , WHETER YOU WANT TO DO DECRYPTION OR NOT-------*/
     printf("\nWould you like to proceed to the Decryption phase? Y/N\n-->");
     fflush(stdin);scanf("%c",&sample);
-    if(sample=='y'||sample=='Y' ||sample=='yes'|| sample=='YES'|| sample=='Yes'|| sample=='yEs' || sample=='yeS' || sample=='yES' || sample=='yeS'|| sample=='YEs' || sample=='YeS'){stepup++;printf("Please wait, Loading ....");}
+    if(sample=='y'||sample=='Y' ||sample=='yes'|| sample=='YES'|| sample=='Yes'|| sample=='yEs' || sample=='yeS' || sample=='yES' || sample=='yeS'|| sample=='YEs' || sample=='YeS'){stepup++;printf("Please wait,Loading ....");}
     else if(sample=='n'||sample=='N' ||sample=='no'|| sample=='NO'|| sample=='No' || sample=='nO'){printf("ok , as you wish, we will stop the code here. (press any key to quit)");getch();}
     else{printf("invalid respond , we will consider this as NO. (press any key to quit)",sample);getch();}
        
@@ -77,18 +90,21 @@ int main(){
 	 printf("The Decrypted Data is as follows:\n--> "); 
 	 for( i=0;str[i];i++){
       	 if(str[i]==' '){continue;}/*--FOR SPACES--*/
-         else if(str[i]>='a' && str[i]<='z'){/*--FOR SMALL LETTERS--*/
+         else if(str[i]>='a' && str[i]<='z'){                              /*--FOR SMALL LETTERS--*/
     	 	  if(str[i]-usedkey<'a'){str[i]=str[i]-usedkey+26;}
     	          else{str[i]=str[i]-usedkey;}
 	       }
-	 else if(str[i]>='A' && str[i]<='Z'){/*--FOR CAPITAL LETTERS--*/
+	 else if(str[i]>='A' && str[i]<='Z'){                              /*--FOR CAPITAL LETTERS--*/
     	         if(str[i]-usedkey<'A'){str[i]=str[i]-usedkey+26;}
     	         else{str[i]=str[i]-usedkey;}
 	       } 
-	 else if(str[i]>='0' && str[i]<='9'){/*--FOR SNUMERIC VALUES--*/
+	 else if(str[i]>='0' && str[i]<='9'){                               /*--FOR SNUMERIC VALUES--*/
     	          if(str[i]-usednumkey<'0'){str[i]=str[i]-usednumkey+10;}
     		  else{str[i]=str[i]-usednumkey;}
 	       } 
+	  else{                                                             /*--FOR SYMBOLS--*/
+	        str[i]=str[i]-122;
+	       }     
 	   } 
 	   puts(str);
 	   printf("\n\nWe extend our gratitude to you. We trust that our code has been of service. (press any key to quit)\n"); 
